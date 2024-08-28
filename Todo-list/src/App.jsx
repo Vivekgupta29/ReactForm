@@ -23,7 +23,7 @@ const App = () => {
 
   return(
     <>
-      <div className="w-screen h-screen bg-slate-900 p-[4vw]">
+      <div className="w-screen min-h-screen bg-slate-900 p-[4vw]">
         <div className="bg-white w-full h-full p-5 flex flex-col">
           
           <div className="flex justify-center items-center w-full p-2 ">
@@ -44,22 +44,23 @@ const App = () => {
 
           <div className="w-full h-full p-5 gap-3 flex flex-col">
             {
-              console.log(Object.keys(Todos).length)  
+              Object.keys(Todos).map((item,index)=>(
+                <div  className="flex gap-3 items-center justify-between text-lg font-semibold border-2 px-5 py-2 rounded-lg hover:border-black transition-all">
+                  <div>
+                    {Todos[item].text}
+                  </div>
+                  <div className="flex gap-2 ">
+                    <button className="px-5 py-1 bg-green-700 text-white transition-all  rounded-lg">
+                      Update
+                    </button>
+                    <button className="px-5 py-1 bg-red-700 text-white transition-all  rounded-lg">
+                      Delete
+                    </button>
+                  </div>
+              </div>
+              ))  
             }
-            <div className="flex gap-3 items-center justify-between text-lg font-semibold border-2 px-5 py-2 rounded-lg hover:border-black transition-all">
-              <div>
-                Todo Description
-              </div>
-              <div className="flex gap-2 ">
-
-              <button className="px-5 py-1 bg-green-700 text-white transition-all  rounded-lg">
-                Update
-              </button>
-              <button className="px-5 py-1 bg-red-700 text-white transition-all  rounded-lg">
-                Delete
-              </button>
-              </div>
-            </div>
+            
             
           </div>
 
